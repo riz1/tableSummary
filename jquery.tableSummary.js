@@ -17,7 +17,8 @@ $('#tableID').tableSummary(1,3,4); // pass col number
 			  $(this).find('tbody tr')
 				  .children("td:nth-child(" + arguments[i] + ")")
 				  .each(function(idx,td) {
-				    total += parseFloat($(td).text());
+				  	var n = parseFloat($(td).text());
+				    total += isNaN(n)? 0: n;
 			  });
 
 		    $(this).find('tfoot tr td:nth-child('+arguments[i]+')').html(total);
